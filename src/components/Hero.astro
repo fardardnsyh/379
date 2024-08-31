@@ -1,0 +1,36 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+    hiIAm: string,
+    jobTitle: string,
+    tagline: string,
+    visitMy: string,
+    emailMeAt: string,
+    photoAlt: string,
+    email: string,
+    resumeUrl: string,
+    viewResumeText: string,
+}
+
+const { hiIAm, jobTitle, tagline, visitMy, emailMeAt, photoAlt, email, resumeUrl, viewResumeText } = Astro.props;
+---
+
+<section class="mt-[70px] md:mt-0 flex flex-col md:flex-row items-center justify-between h-[600px] md:h-[400px] max-w-[900px] mx-auto">
+    <div class="mb-10 md:mb-0">
+        <p class="text-5xl font-black text-purple-600 mt-1 tracking-tight">Miguel Higuera<span class="text-gray-400 font-black">.</span></p>
+        <p class="text-xl font-bold text-neutral-300 mt-1">{jobTitle}</p>
+        <p class="text-lg text-gray-300 max-w-[300px] md:max-w-[900px]">{tagline}</p>
+        <div class="mt-2 flex gap-3 mb-3">
+            <a href={resumeUrl} target="_blank" rel="noopener noreferrer" class="lighten" aria-label={viewResumeText}><img src="/pdf.svg" class="inline w-6 h-6" alt="" /></a>
+            <a href="https://www.linkedin.com/in/miguelhigueradev/" target="_blank" rel="noopener noreferrer" class="lighten" aria-label=`${visitMy} LinkedIn`><img src="/linkedin.svg" class="inline w-6 h-6" alt="" /></a>
+            <a href="https://github.com/miguelhigueradev" target="_blank" rel="noopener noreferrer" class="lighten" aria-label=`${visitMy} GitHub`><img src="/github-purple.svg" class="inline w-6 h-6" alt="" /></a>
+            <a href="mailto:me@miguelhiguera.dev" target="_blank" rel="noopener noreferrer" class="lighten" aria-label=`${emailMeAt}`><img src="/email.svg" class="inline w-6 h-6" alt="" /></a>
+        </div>
+        <a href="mailto:me@miguelhiguera.dev" class="text-gray-300 font-semibold hover:text-purple-500 transition-colors duration-100 ease-in-out" target="_blank">{email}</a>
+    </div>
+    <div class="flex-grow">
+        <Image src="/miguelhigueradev.webp" width={300} height={300} loading="eager" class="w-[300px] h-[300px] md:w-[300px] md:h-[300px] ml-auto" alt={photoAlt} />
+    </div>
+
+</section>
